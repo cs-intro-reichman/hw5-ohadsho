@@ -4,14 +4,15 @@ public class MyStringTest {
             System.out.println("Please provide a specific test to run: countChar, subsetOf, spacedString, randomStringOfLetters, or remove.");
             return;
         }
+        testSubsetOf();
         // Run specific test based on argument
-        switch (args[0]) {
-            case "countChar": testCountChar(); break;
-            case "subsetOf": testSubsetOf(); break;
-            case "spacedString": testSpacedString(); break;
-            case "randomStringOfLetters": testRandomStringOfLetters(); break;
-            case "remove": testRemove(); break;
-            default: System.out.println("Unknown test: " + args[0]);
+        //switch (args[0]) {
+          //  case "countChar": testCountChar(); break;
+           // case "subsetOf": testSubsetOf(); break;
+          //  case "spacedString": testSpacedString(); break;
+          //  case "randomStringOfLetters": testRandomStringOfLetters(); break;
+          //  case "remove": testRemove(); break;
+          //  default: System.out.println("Unknown test: " + args[0]);
         }
     }
 
