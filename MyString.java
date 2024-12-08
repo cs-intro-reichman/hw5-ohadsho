@@ -23,15 +23,16 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
+        int counter =0; 
+        
         if (str.isEmpty()) {
             return 0;
         }
-        int counter =0;
+    
         for(int i=0; i<str.length(); i++){
             if(str.charAt(i) ==ch){
                 counter++;
             }
-
         }
         return counter;
         
@@ -56,7 +57,7 @@ public class MyString {
         return true;
 
         for(int i=0;i<str1.length(); i++){
-            if(countChar(str1 , str1.charAt(i)) > countChar(str2 , str2.charAt(i)))
+            if(countChar(str1 , str1.charAt(i)) > countChar(str2 , str1.charAt(i)))
             return false;
         }
         return true;      

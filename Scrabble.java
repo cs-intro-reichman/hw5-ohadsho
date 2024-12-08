@@ -63,11 +63,10 @@ public class Scrabble {
 		int totalPoints = 0;
 
 		for(int i =0; i<word.length();i++){
-			totalPoints = totalPoints + SCRABBLE_LETTER_VALUES[word.charAt(i)];
+			totalPoints = totalPoints + SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
 		}
 
 		totalPoints = totalPoints*word.length();
-
 		
 		if(MyString.subsetOf(word, "runi")){
 			totalPoints = totalPoints + 1000;
