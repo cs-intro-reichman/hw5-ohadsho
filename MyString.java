@@ -8,9 +8,9 @@ public class MyString {
         String hello = "hello";
         String runi = "runi";
        System.out.println(subsetOf("silent","s i l e n t"));
-      // System.out.println(countChar(hello, 'l'));
-      // System.out.println(countChar(hello, 'z'));
-        //ystem.out.println(remove("committee", "meet"));
+      System.out.println(countChar(hello, 'l'));
+       System.out.println(countChar(hello, 'z'));
+        System.out.println(remove("committee", "meet"));
         //// Put your other tests here.
     }
 
@@ -56,7 +56,7 @@ public class MyString {
         return true;
 
         for(int i=0;i<str1.length(); i++){
-            if(countChar(str1 , str1.charAt(i)) != countChar(str2 , str2.charAt(i)))
+            if(countChar(str1 , str1.charAt(i)) > countChar(str2 , str2.charAt(i)))
             return false;
         }
         return true;      

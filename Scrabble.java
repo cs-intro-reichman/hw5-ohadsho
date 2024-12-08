@@ -62,6 +62,13 @@ public class Scrabble {
 		
 		int totalPoints = 0;
 
+		for(int i =0; i<word.length();i++){
+			totalPoints = totalPoints + SCRABBLE_LETTER_VALUES[word.charAt(i)];
+		}
+
+		totalPoints = totalPoints*word.length();
+
+		
 		if(MyString.subsetOf(word, "runi")){
 			totalPoints = totalPoints + 1000;
 		}
@@ -69,12 +76,6 @@ public class Scrabble {
 		if(word.length() == HAND_SIZE){
 			totalPoints = totalPoints + 50;
 		}
-
-		for(int i =0; i<word.length();i++){
-			totalPoints = totalPoints + SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
-		}
-
-		totalPoints = totalPoints*word.length();
 
 
 		return totalPoints;
@@ -87,13 +88,9 @@ public class Scrabble {
 		String hand = "";
 		MyString.randomStringOfLetters(HAND_SIZE -2);
 		MyString.insertRandomly('a', hand);
-		MyString.insertRandomly('a', hand);
+		MyString.insertRandomly('e', hand);
 
 		return hand;
-
-
-
-
 	}
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
@@ -115,12 +112,16 @@ public class Scrabble {
 			String input = in.readString();
 
 
-		    if(input.equals('.'))
+		    if(input.equals('.')){
 			break;
+		}
 
+			else if(isWordInDictionary(input)){
+				score += wordScore(input);
+				MyString.remove(hand, input);
+			}
 			else{
-				score += wordScore(hand);
-
+				System.out.println("The word you entered is not valid try again");
 			}
 		}
 		if (hand.length() == 0) {
