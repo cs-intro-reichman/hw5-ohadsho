@@ -23,6 +23,9 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
+        if (str.isEmpty()) {
+            return 0;
+        }
         int counter =0;
         for(int i=0; i<str.length(); i++){
             if(str.charAt(i) ==ch){
@@ -69,6 +72,10 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
+        if (str.isEmpty() ||str == null ) {
+            return" ";
+        }
+
         String spacedStr = str;
         for(int i=1; i<str.length() +str.length() -1 ;i++){
             spacedStr = spacedStr.substring(0, i) + " " + spacedStr.substring(i);
@@ -110,6 +117,13 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
+        if(str2 == null || str2.isEmpty())
+        return str1;
+
+        if(str1 == null || str1.isEmpty())
+        return " ";
+
+
         String copyStr1 = str1;
         String copyStr2 = str2;
 
