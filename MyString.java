@@ -77,7 +77,7 @@ public class MyString {
         }
 
         String spacedStr = str;
-        for(int i=1; i<str.length() +str.length() -1 ;i++){
+        for(int i=0; i<str.length() +str.length() -1 ;i++){
             spacedStr = spacedStr.substring(0, i) + " " + spacedStr.substring(i);
             i++;
         }
@@ -122,6 +122,10 @@ public class MyString {
 
         if(str1 == null || str1.isEmpty())
         return " ";
+
+
+        if(str1.equals(str2))
+        return "";
 
 
         String copyStr1 = str1;
