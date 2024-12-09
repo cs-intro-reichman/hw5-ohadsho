@@ -40,7 +40,8 @@ public class MyString {
      * @return true if str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        for (char c : str1.toCharArray()) {
+        for (int i = 0; i < str1.length(); i++) {
+            char c = str1.charAt(i); 
             if (countChar(str1, c) > countChar(str2, c)) {
                 return false;
             }
