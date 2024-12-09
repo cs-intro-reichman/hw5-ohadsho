@@ -59,24 +59,26 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		
+		// Handle the case where the word is empty
+		if (word.length() == 0) {
+			return 0; // No points for empty words
+		}
 		int totalPoints = 0;
-
-		for(int i =0; i<word.length();i++){
-			totalPoints = totalPoints + SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
+	
+		for (int i = 0; i < word.length(); i++) {
+			totalPoints += SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
 		}
-
-		totalPoints = totalPoints*word.length();
-		
-		if(MyString.subsetOf(word, "runi")){
-			totalPoints = totalPoints + 1000;
+	
+		totalPoints = totalPoints * word.length();
+	
+		if (MyString.subsetOf(word, "runi")) {
+			totalPoints += 1000;
 		}
-
-		if(word.length() == HAND_SIZE){
-			totalPoints = totalPoints + 50;
+	
+		if (word.length() == HAND_SIZE) {
+			totalPoints += 50;
 		}
-
-
+	
 		return totalPoints;
 	}
 
@@ -84,11 +86,11 @@ public class Scrabble {
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
-		String hand = "";
-		MyString.randomStringOfLetters(HAND_SIZE -2);
-		MyString.insertRandomly('a', hand);
-		MyString.insertRandomly('e', hand);
-
+		String hand = MyString.randomStringOfLetters(HAND_SIZE - 2);
+		
+		hand = MyString.insertRandomly('a', hand);
+		hand = MyString.insertRandomly('e', hand);
+	
 		return hand;
 	}
 	
@@ -97,37 +99,24 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) {
-		int n = hand.length();
 		int score = 0;
-		// Declares the variable in to refer to an object of type In, and initializes it to represent
-		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
 		In in = new In();
 		while (hand.length() > 0) {
 			System.out.println("Current Hand: " + MyString.spacedString(hand));
 			System.out.println("Enter a word, or '.' to finish playing this hand:");
-			// Reads the next "token" from the keyboard. A token is defined as a string of 
-			// non-whitespace characters. Whitespace is either space characters, or  
-			// end-of-line characters.
+	
 			String input = in.readString();
-
-
-		    if(input.equals(".")){
-			break;
-		}
-
-			else if(isWordInDictionary(input) && MyString.subsetOf(input, hand)){
+	
+			if (input.equals(".")) {
+				break;
+			} else if (isWordInDictionary(input) && MyString.subsetOf(input, hand)) {
 				score += wordScore(input);
-				hand = MyString.remove(hand, input);
-			}
-			else{
-				System.out.println("The word you entered is not valid try again");
+				hand = MyString.remove(hand, input); // Remove the word from hand
+			} else {
+				System.out.println("The word you entered is not valid, try again");
 			}
 		}
-		if (hand.length() == 0) {
-	        System.out.println("Ran out of letters. Total score: " + score + " points");
-		} else {
-			System.out.println("End of hand. Total score: " + score + " points");
-		}
+		System.out.println("End of hand. Total score: " + score + " points");
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
