@@ -23,19 +23,16 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
-        int counter =0; 
-        
+        int counter = 0;
         if (str.isEmpty()) {
             return 0;
         }
-    
-        for(int i=0; i<str.length(); i++){
-            if(str.charAt(i) ==ch){
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
                 counter++;
             }
         }
         return counter;
-        
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
