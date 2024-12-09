@@ -10,7 +10,7 @@ public class MyString {
       // System.out.println(subsetOf("silent","s i l e n t"));
      // System.out.println(countChar(hello, 'l'));
        //System.out.println(countChar(hello, 'z'));
-        System.out.println(remove("committee  ", "meet"));
+        System.out.println(spacedString("silent"));
         //// Put your other tests here.
     }
 
