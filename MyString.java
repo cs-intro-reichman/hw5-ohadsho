@@ -6,6 +6,7 @@ import java.util.Random;
 public class MyString {
 
     public static void main(String[] args) {
+        System.out.println(subsetOf(  "runi","running" ));
         // Put your other tests here.
     }
 

@@ -67,21 +67,17 @@ public class Scrabble {
 		}
 	
 		int score = 0;
-		word = word.toLowerCase();  // Normalize the word to lowercase
+		word = word.toLowerCase();  
 	
-		// Loop through each letter in the word to calculate the score
 		for (int i = 0; i < word.length(); i++) {
-			char c = word.charAt(i);
-			if (c >= 'a' && c <= 'z') {
-				score += SCRABBLE_LETTER_VALUES[c - 'a'];  // Add the corresponding letter score
-			}
+				score += SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];  
 		}
 		
 		score  = score* word.length();
 
 	
 		// Apply the "runi" bonus (1000 points) if the word contains "runi"
-		if (word.contains("runi")) {
+		if (MyString.subsetOf("runi", word)) {
 			score += 1000;
 		}
 	
@@ -124,20 +120,29 @@ public class Scrabble {
             if (input.equals(".")) {
                 break;
             }
+
             if (!MyString.subsetOf(input, hand)) {
                 System.out.println("Invalid word. Try again.");
-            } else if (!isWordInDictionary(input)) {
+
+            }
+
+			 else if (!isWordInDictionary(input)) {
                 System.out.println("No such word in the dictionary. Try again.");
-            } else {
+            } 
+
+			else {
                 int wordScore = wordScore(input);
                 score += wordScore(input);
                 hand = MyString.remove(hand, input);
                 System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points\n");
             }
+
         }
         if (hand.length() == 0) {
             System.out.println("Ran out of letters. Total score: " + score + " points");
-        } else {
+        }
+		
+		else {
             System.out.println("End of hand. Total score: " + score + " points");
         }
     }
@@ -179,22 +184,22 @@ public class Scrabble {
 		init();
 		// Prints a few words
 		for (int i = 0; i < 6; i++) {
-			System.out.println(DICTIONARY[i]);
+		//	System.out.println(DICTIONARY[i]);
 		}
-		System.out.println(isWordInDictionary("e"));
+	//	System.out.println(isWordInDictionary("e"));
 	}
 	
 	public static void testScrabbleScore() {
-		System.out.println(wordScore("bee"));	
-		System.out.println(wordScore("babe"));
-		System.out.println(wordScore("friendship"));
-		System.out.println(wordScore("running"));
+	//	System.out.println(wordScore("bee"));	
+	//	System.out.println(wordScore("babe"));
+	//System.out.println(wordScore("friendship"));
+		//System.out.println(wordScore("running"));
 	}
 	
 	public static void testCreateHands() {
 		System.out.println(createHand());
-		System.out.println(createHand());
-		System.out.println(createHand());
+		////System.out.println(createHand());
+	//	System.out.println(createHand());
 	}
 	public static void testPlayHands() {
 		init();
