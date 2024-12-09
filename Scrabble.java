@@ -59,17 +59,18 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		// Handle the case where the word is empty
 		if (word.length() == 0) {
-			return 0; // No points for empty words
+			return 0; 
 		}
+	
 		int totalPoints = 0;
 	
 		for (int i = 0; i < word.length(); i++) {
 			totalPoints += SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
 		}
 	
-		totalPoints = totalPoints * word.length();
+		// Multiply by the length of the word
+		totalPoints *= word.length();
 	
 		if (MyString.subsetOf(word, "runi")) {
 			totalPoints += 1000;
