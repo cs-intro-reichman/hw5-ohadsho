@@ -5,13 +5,7 @@ import java.util.Random;
  */
 public class MyString {
     public static void main(String args[]) {
-        String hello = "hello";
-        String runi = "runi";
-      // System.out.println(subsetOf("silent","s i l e n t"));
-     // System.out.println(countChar(hello, 'l'));
-       //System.out.println(countChar(hello, 'z'));
-        System.out.println(remove("abc", "abc"));
-        //// Put your other tests here.
+ 
     }
 
     /**
@@ -24,6 +18,14 @@ public class MyString {
      */
     public static int countChar(String str, char ch) {
         int counter = 0;
+        if (str.isEmpty()) {
+            return 0;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
+                counter++;
+            }
+        }
         return counter;
     }
 
