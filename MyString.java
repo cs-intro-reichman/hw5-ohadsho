@@ -5,7 +5,13 @@ import java.util.Random;
  */
 public class MyString {
     public static void main(String args[]) {
- 
+        String hello = "hello";
+        String runi = "runi";
+      // System.out.println(subsetOf("silent","s i l e n t"));
+     // System.out.println(countChar(hello, 'l'));
+       //System.out.println(countChar(hello, 'z'));
+        System.out.println(remove("committee  ", "meet"));
+        //// Put your other tests here.
     }
 
     /**
@@ -109,31 +115,20 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-        if(str2 == null || str2.isEmpty())
-        return str1;
-
-        if(str1 == null || str1.isEmpty())
-        return " ";
-
-
-        if(str1.equals(str2))
-        return "";
-
-
-        String copyStr1 = str1;
-        String copyStr2 = str2;
-
-
-        for(int i=0; i < copyStr1.length() ; i++){
-            if(copyStr1.charAt(i) == copyStr2.charAt(0) ){
-                copyStr1 =  copyStr1.substring(0,i) + copyStr1.substring(i+1,copyStr1.length());
-                copyStr2 =  copyStr2.substring(0,0) + copyStr2.substring(0+1,copyStr2.length());
-                i--;
-            }
-
+        if (str2.isEmpty()) {
+            return str1;
         }
-        return copyStr1;
-      
+
+        if (str1.isEmpty()) {
+            return "";
+        }
+
+        for (int i = 0; i < str2.length(); i++) {
+            int charIndex = str1.indexOf(str2.charAt(i));
+            str1 = str1.substring(0, charIndex) + str1.substring(charIndex + 1);
+        }
+        
+        return str1;
     }
 
     /**
