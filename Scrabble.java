@@ -69,25 +69,28 @@ public class Scrabble {
 		int score = 0;
 		word = word.toLowerCase();  // Normalize the word to lowercase
 	
+		// Loop through each letter in the word to calculate the score
 		for (int i = 0; i < word.length(); i++) {
-			Integer letterScore = SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];  
-	
-			if (letterScore != null) {
-				score += letterScore;  
+			char c = word.charAt(i);
+			if (c >= 'a' && c <= 'z') {
+				score += SCRABBLE_LETTER_VALUES[c - 'a'];  // Add the corresponding letter score
+			}
+		}
 		
-		}
+		score  = score* word.length();
+
 	
+		// Apply the "runi" bonus (1000 points) if the word contains "runi"
 		if (word.contains("runi")) {
-			score += 1000; 
+			score += 1000;
 		}
 	
+		// Apply length-based bonus if the word length equals HAND_SIZE
 		if (word.length() == HAND_SIZE) {
-			score += 50; 
+			score += 50;
 		}
-	}
 	
-		return score; 
-	
+		return score;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
