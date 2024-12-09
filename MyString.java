@@ -7,10 +7,10 @@ public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
         String runi = "runi";
-       System.out.println(subsetOf("silent","s i l e n t"));
-      System.out.println(countChar(hello, 'l'));
-       System.out.println(countChar(hello, 'z'));
-        System.out.println(remove("committee", "meet"));
+      // System.out.println(subsetOf("silent","s i l e n t"));
+     // System.out.println(countChar(hello, 'l'));
+       //System.out.println(countChar(hello, 'z'));
+        System.out.println(remove("abc", "abc"));
         //// Put your other tests here.
     }
 
